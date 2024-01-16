@@ -120,11 +120,13 @@ public class GameOfLife {
 				return 1;
 			}
 		}
-		else if (liveNeighbors == 3){
-			return 1;
-		}
 		else {
-			return 0;
+			if (liveNeighbors == 3){
+				return 1;
+			}
+			else {
+				return 0;
+			}
 		}
 		//if (board[i][j] == 0 && count(board, i, j) == 3){
 		//		board[i][j] = 1;
