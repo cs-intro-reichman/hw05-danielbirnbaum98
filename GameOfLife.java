@@ -69,7 +69,7 @@ public class GameOfLife {
 		int counter = 0;
 		while (in.hasNextLine()) {
 				String x = in.readLine();
-				for (int i = 1; i < x.length() - 1; i++) {
+				for (int i = 0; i < x.length(); i++) {
 					if (x.charAt(i) == 'x') {
 						board[counter][i] = 1;
 					}
