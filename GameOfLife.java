@@ -69,7 +69,7 @@ public class GameOfLife {
 		int counter = 0;
 		while (in.hasNextLine()) {
 				String x = in.readLine();
-				for (int i = 0; i < x.length(); i++) {
+				for (int i = 1; i < x.length() - 1; i++) {
 					if (x.charAt(i) == 'x') {
 						board[counter][i] = 1;
 					}
@@ -164,8 +164,8 @@ public class GameOfLife {
 	}
 	// Prints the board. Alive and dead cells are printed as 1 and 0, respectively.
     public static void print(int[][] arr) {
-		for (int i = 0; i < arr.length - 2; i++) {
-			for (int j = 0; j < arr[0].length - 2; j++) {
+		for (int i = 1; i < arr.length - 1; i++) {
+			for (int j = 1; j < arr[0].length - 1; j++) {
 				System.out.printf("  %d" , arr [i][j] );
 			}
 			System.out.printf("%n");
