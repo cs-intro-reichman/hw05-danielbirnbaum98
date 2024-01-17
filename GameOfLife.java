@@ -66,12 +66,12 @@ public class GameOfLife {
 		int rows = Integer.parseInt(in.readLine());
 		int cols = Integer.parseInt(in.readLine());
 		int[][] board = new int[rows + 2][cols + 2];
-		int counter = 0;
+		int counter = 1;
 		while (in.hasNextLine()) {
 				String x = in.readLine();
-				for (int i = 1; i < x.length() - 1; i++) {
+				for (int i = 1; i < x.length() ; i++) {
 					if (x.charAt(i) == 'x') {
-						board[counter][i] = 1;
+						board[counter][i + 1] = 1;
 					}
 				}
 				counter++;
