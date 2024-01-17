@@ -69,7 +69,7 @@ public class GameOfLife {
 		int counter = 0;
 		while (in.hasNextLine()) {
 				String x = in.readLine();
-				for (int i = 0; i < x.length(); i++) {
+				for (int i = 1; i < x.length()-1; i++) {
 					if (x.charAt(i) == 'x') {
 						board[counter][i] = 1;
 					}
@@ -107,12 +107,12 @@ public class GameOfLife {
 	// Assumes that j is at least 1 and at most the number of columns in the board - 1. 
 	// Uses the count(board,i,j) function to count the number of alive neighbors.
 	public static int cellValue(int[][] board, int i, int j) {
-		Boolean isAlive = false;
-		if (board[i][j] == 1 ){
-			isAlive = true;
-		}
+		Boolean alive = false;
 		int liveNeighbors = count(board, i, j);
-		if (isAlive){
+		if (board[i][j] == 1 ){
+			alive = true;
+		}
+		if (alive){
 			if (liveNeighbors < 2 || liveNeighbors > 3){
 				return 0;
 			}
@@ -120,31 +120,14 @@ public class GameOfLife {
 				return 1;
 			}
 		}
-		else {
-			if (liveNeighbors == 3){
+		else if (liveNeighbors == 3){
 				return 1;
 			}
-			else {
-				return 0;
+		else {
+			return 0;
+
 			}
 		}
-		//if (board[i][j] == 0 && count(board, i, j) == 3){
-		//		board[i][j] = 1;
-		//	}
-		//else if (board[i][j] == 1 && count(board, i, j) < 2){
-	    //         board[i][j] = 0 ;
-		//    }
-		//else if (board[i][j] == 1 && (count(board, i, j) == 2 || count(board, i, j) == 3)){
-		//     	board[i][j] = 1 ;
-		//    }
-		//else if (board[i][j] == 1 && count(board, i, j) > 3){
-		//	board[i][j] = 0;
-		//	}
-		//else {
-		//	board[i][j] = 0;
-		//}
-		//return board[i][j];
-	}
 	
 	// Counts and returns the number of living neighbors of the given cell
 	// (The cell itself is not counted).
